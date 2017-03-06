@@ -1,0 +1,54 @@
+.navbar {
+	background: #004b7c; 
+}
+
+.navbar-brand {
+	padding-top: 5px;
+}
+
+.logo {
+	width: 150px;
+	height: 60px;
+	padding-bottom: 20px;
+}
+
+.font-menu {
+	color: white !important;
+	font-weight: bold;
+}
+
+footer {
+	background: #004b7c;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	color: white;
+}
+
+.link-footer {
+	color: #cdd130;
+}
+
+.image-footer {
+	padding-bottom: 20px;
+}
+
+.image-login {
+	padding-bottom: 20px;
+}
+
+.card-container.card {
+    max-width: 460px;
+    padding: 10px 20px;
+    min-height: 383px;
+    background-color: rgba(48, 150, 208, 0.1);
+    color: #000;
+    border-radius: 15px;
+}
+
+.checkbox {
+	float: left;
+}
+
+.dropdown-toggle {
+	color: white !important;
+}
