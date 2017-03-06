@@ -1,11 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
+
+<div class="container">
+    <img src="img/logo.jpg" class="logo center-block"/>
+    <a class="ads" target="_blank"><img src="img/top-prize.gif" title="forum.football5star" class="img-responsive center-block"></a>
+    <br>
+</div>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+                <div class="panel-heading j-daftar">Daftar</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
@@ -60,6 +66,48 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
+                            <label for="phone" class="col-md-4 control-label">Phone</label>
+
+                            <div class="col-md-6">
+                                <input id="phone" type="number" class="form-control" name="phone" value="{{ old('phone') }}" required autofocus>
+
+                                @if ($errors->has('phone'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('phone') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('tgl_lahir') ? ' has-error' : '' }}">
+                            <label for="tgl_lahir" class="col-md-4 control-label">Tanggal Lahir</label>
+
+                            <div class="col-md-6">
+                                <input id="tgl_lahir" type="Date" class="form-control" name="tgl_lahir" value="{{ old('tgl_lahir') }}" required autofocus>
+
+                                @if ($errors->has('tgl_lahir'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('tgl_lahir') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('alamat') ? ' has-error' : '' }}">
+                            <label for="alamat" class="col-md-4 control-label"> Alamat </label>
+
+                            <div class="col-md-6">
+                                <input id="alamat" type="text" class="form-control" name="alamat" value="{{ old('alamat') }}" required autofocus>
+
+                                @if ($errors->has('alamat'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('alamat') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
@@ -73,4 +121,7 @@
         </div>
     </div>
 </div>
+<br>
+<br>
+
 @endsection
