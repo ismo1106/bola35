@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <div class="container">
     <img src="img/logo.jpg" class="logo center-block"/>
@@ -13,48 +11,49 @@
             <div class="panel panel-default">
                 <div class="panel-heading j-daftar">Daftar</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
-                        {{ csrf_field() }}
+                    <form class="form-horizontal" role="form" method="POST" action="<?php echo e(url('/register')); ?>">
+                        <?php echo e(csrf_field()); ?>
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+
+                        <div class="form-group<?php echo e($errors->has('name') ? ' has-error' : ''); ?>">
                             <label for="name" class="col-md-4 control-label">Name</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="name" type="text" class="form-control" name="name" value="<?php echo e(old('name')); ?>" required autofocus>
 
-                                @if ($errors->has('name'))
+                                <?php if($errors->has('name')): ?>
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong><?php echo e($errors->first('name')); ?></strong>
                                     </span>
-                                @endif
+                                <?php endif; ?>
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                        <div class="form-group<?php echo e($errors->has('email') ? ' has-error' : ''); ?>">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                                <input id="email" type="email" class="form-control" name="email" value="<?php echo e(old('email')); ?>" required>
 
-                                @if ($errors->has('email'))
+                                <?php if($errors->has('email')): ?>
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong><?php echo e($errors->first('email')); ?></strong>
                                     </span>
-                                @endif
+                                <?php endif; ?>
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                        <div class="form-group<?php echo e($errors->has('password') ? ' has-error' : ''); ?>">
                             <label for="password" class="col-md-4 control-label">Password</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control" name="password" required>
 
-                                @if ($errors->has('password'))
+                                <?php if($errors->has('password')): ?>
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
+                                        <strong><?php echo e($errors->first('password')); ?></strong>
                                     </span>
-                                @endif
+                                <?php endif; ?>
                             </div>
                         </div>
 
@@ -66,45 +65,45 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
+                        <div class="form-group<?php echo e($errors->has('phone') ? ' has-error' : ''); ?>">
                             <label for="phone" class="col-md-4 control-label">Phone</label>
 
                             <div class="col-md-6">
-                                <input id="phone" type="number" class="form-control" name="phone" value="{{ old('phone') }}" required autofocus>
+                                <input id="phone" type="number" class="form-control" name="phone" value="<?php echo e(old('phone')); ?>" required autofocus>
 
-                                @if ($errors->has('phone'))
+                                <?php if($errors->has('phone')): ?>
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('phone') }}</strong>
+                                        <strong><?php echo e($errors->first('phone')); ?></strong>
                                     </span>
-                                @endif
+                                <?php endif; ?>
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('tgl_lahir') ? ' has-error' : '' }}">
+                        <div class="form-group<?php echo e($errors->has('tgl_lahir') ? ' has-error' : ''); ?>">
                             <label for="tgl_lahir" class="col-md-4 control-label">Tanggal Lahir</label>
 
                             <div class="col-md-6">
-                                <input id="tgl_lahir" type="Date" class="form-control" name="tgl_lahir" value="{{ old('tgl_lahir') }}" required autofocus>
+                                <input id="tgl_lahir" type="Date" class="form-control" name="tgl_lahir" value="<?php echo e(old('tgl_lahir')); ?>" required autofocus>
 
-                                @if ($errors->has('tgl_lahir'))
+                                <?php if($errors->has('tgl_lahir')): ?>
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('tgl_lahir') }}</strong>
+                                        <strong><?php echo e($errors->first('tgl_lahir')); ?></strong>
                                     </span>
-                                @endif
+                                <?php endif; ?>
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('alamat') ? ' has-error' : '' }}">
+                        <div class="form-group<?php echo e($errors->has('alamat') ? ' has-error' : ''); ?>">
                             <label for="alamat" class="col-md-4 control-label"> Alamat </label>
 
                             <div class="col-md-6">
-                                <input id="alamat" type="text" class="form-control" name="alamat" value="{{ old('alamat') }}" required autofocus>
+                                <input id="alamat" type="text" class="form-control" name="alamat" value="<?php echo e(old('alamat')); ?>" required autofocus>
 
-                                @if ($errors->has('alamat'))
+                                <?php if($errors->has('alamat')): ?>
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('alamat') }}</strong>
+                                        <strong><?php echo e($errors->first('alamat')); ?></strong>
                                     </span>
-                                @endif
+                                <?php endif; ?>
                             </div>
                         </div>
 
@@ -124,4 +123,5 @@
 <br>
 <br>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
