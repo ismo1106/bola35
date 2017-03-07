@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\home;
+use App\masterliga;
+use App\masterteam;
+
+
 
 class HomeController extends Controller
 {
@@ -23,6 +29,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $home = home::all();
+        $masterliga = masterliga::all();
+        $masterteam = masterteam::all();
+
+        return view('home', [ 'home' => $home , 'masterliga' => $masterliga , 'masterteam' => $masterteam ]);
+    }
+
+    public function play_game()
+    {
+        return view('play_game');
     }
 }

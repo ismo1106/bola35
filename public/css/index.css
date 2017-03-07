@@ -52,3 +52,57 @@ footer {
 .dropdown-toggle {
 	color: white !important;
 }
+
+/* -------halaman daftar------- */
+
+.j-daftar {
+	font-size: 36px;
+	text-align: center;
+	color: red !important;
+	font-weight: bold;
+}
+
+/* -------halaman dashboard user------- */
+
+.kuisplay {
+	color: black;
+	font-weight: bold;
+	font-size : 30px;
+}
+
+.top_news {
+	background: white;
+    padding-top: 20px;
+}
+
+.s-media {
+	color: black;
+}
+
+.poin {
+	text-align: center;
+	font-size: 28px;
+	border: none;
+}
+
+.j-poin {
+	color: black;
+	font-weight: bold;
+}
+
+.logoteam {
+	width: 50px;
+    height: 30px;
+}
+
+.play_game {
+	border-style: solid;
+	border-color: red;
+	border-radius: 15px;
+}
+
+.poinskor {
+	border-style: dashed;
+	border-color: red !important;
+	border-radius: 15px;
+}

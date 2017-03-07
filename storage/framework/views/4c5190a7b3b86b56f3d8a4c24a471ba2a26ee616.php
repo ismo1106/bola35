@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <div class="container">
     <div class="row">
@@ -60,18 +58,18 @@
                                     <th width="73">Game Poin</th>
                                 </tr>
                             </thead>
-                            @foreach($home as $home)
+                            <?php $__currentLoopData = $home; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $home): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
                             <tbody>
                                 <tr>
-                                    <td >{{ $home->tanggal }}</td>
-                                    <td class="match"> {{ $home->partai }} </td>
-                                    <td> {{ $home->skor_pertandingan }} </td>
-                                    <td class="tt"> {{ $home->poin_tebakan_skor }} </td>
-                                    <td class="tt"> {{ $home->poin_tebakan_hasil }} </td>
-                                    <td class="tt"> {{ $home->game_poin }} </td>
+                                    <td ><?php echo e($home->tanggal); ?></td>
+                                    <td class="match"> <?php echo e($home->partai); ?> </td>
+                                    <td> <?php echo e($home->skor_pertandingan); ?> </td>
+                                    <td class="tt"> <?php echo e($home->poin_tebakan_skor); ?> </td>
+                                    <td class="tt"> <?php echo e($home->poin_tebakan_hasil); ?> </td>
+                                    <td class="tt"> <?php echo e($home->game_poin); ?> </td>
                                 </tr>
                             </tbody>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
                         </table>
                         <hr>
                     </div>
@@ -87,9 +85,9 @@
                 <div class="panel-body">
                     <div>
                         <select style="width: 100%; padding: 5px;" onchange="showstandings(this.value);">
-                            @foreach($masterliga as $masterliga)
-                                <option value="ENG_1"> {{ $masterliga -> liga_name }} </option>
-                            @endforeach
+                            <?php $__currentLoopData = $masterliga; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $masterliga): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
+                                <option value="ENG_1"> <?php echo e($masterliga -> liga_name); ?> </option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
                         </select>
                     </div>
                     <div class="table-responsive" id="ENG_1">
@@ -105,19 +103,19 @@
                                     <th class="text-left">PT</th>
                                 </tr>
                             </thead>
-                            @foreach($masterteam as $masterteams)
+                            <?php $__currentLoopData = $masterteam; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $masterteams): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
                             <tbody>
                                 <tr>
-                                    <td class="text-left" style="padding:5px;"> <img src="/{{$masterteams->logo}}" class="logoteam"> </td>
-                                    <td class="text-left" style="padding:5px;"> {{$masterteams->team_name}} </td>
-                                    <td class="text-left" style="padding:5px;"> {{$masterteams->gp}} </td>
-                                    <td class="text-left" style="padding:5px;"> {{$masterteams->w}} </td>
-                                    <td class="text-left" style="padding:5px;"> {{$masterteams->d}} </td>
-                                    <td class="text-left" style="padding:5px;"> {{$masterteams->l}} </td>
-                                    <td class="text-left" style="padding:5px;"> {{$masterteams->pt}} </td>
+                                    <td class="text-left" style="padding:5px;"> <img src="/<?php echo e($masterteams->logo); ?>" class="logoteam"> </td>
+                                    <td class="text-left" style="padding:5px;"> <?php echo e($masterteams->team_name); ?> </td>
+                                    <td class="text-left" style="padding:5px;"> <?php echo e($masterteams->gp); ?> </td>
+                                    <td class="text-left" style="padding:5px;"> <?php echo e($masterteams->w); ?> </td>
+                                    <td class="text-left" style="padding:5px;"> <?php echo e($masterteams->d); ?> </td>
+                                    <td class="text-left" style="padding:5px;"> <?php echo e($masterteams->l); ?> </td>
+                                    <td class="text-left" style="padding:5px;"> <?php echo e($masterteams->pt); ?> </td>
                                 </tr>
                             </tbody>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
                         </table>
                     </div>
                 </div>
@@ -139,4 +137,6 @@
 </div>
 <br>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

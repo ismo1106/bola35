@@ -23,3 +23,7 @@ Route::get('/home', 'HomeController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+
+//-----play game
+Route::get('/play_game', 'HomeController@play_game');
