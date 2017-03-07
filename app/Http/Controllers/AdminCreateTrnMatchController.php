@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Session;
-use Request;
+use Illuminate\Http\Request;
 use DB;
 use CRUDBooster;
 
@@ -11,145 +11,145 @@ class AdminCreateTrnMatchController extends \crocodicstudio\crudbooster\controll
 
     public function cbInit() {
 
-        # START CONFIGURATION DO NOT REMOVE THIS LINE
-        $this->title_field = "id";
-        $this->limit = "20";
-        $this->orderby = "id,desc";
-        $this->global_privilege = false;
-        $this->button_table_action = true;
-        $this->button_action_style = "button_icon";
-        $this->button_add = true;
-        $this->button_edit = true;
-        $this->button_delete = true;
-        $this->button_detail = true;
-        $this->button_show = true;
-        $this->button_filter = true;
-        $this->button_import = false;
-        $this->button_export = false;
-        $this->table = "bola_kuis.trn_match";
-        # END CONFIGURATION DO NOT REMOVE THIS LINE
-        # START COLUMNS DO NOT REMOVE THIS LINE
-        $this->col = [];
-        $this->col[] = ["label" => "Date Match", "name" => "date_match"];
-        $this->col[] = ["label" => "Liga", "name" => "id_liga", "join" => "bola_kuis.mst_liga,id"];
-        $this->col[] = ["label" => "Team Home", "name" => "id_team_home", "join" => "bola_kuis.mst_team,id"];
-        $this->col[] = ["label" => "Team Away", "name" => "id_team_away", "join" => "bola_kuis.mst_team,id"];
-        $this->col[] = ["label" => "Result Match", "name" => "result_match"];
-        $this->col[] = ["label" => "Score Team Home", "name" => "score_team_home"];
-        $this->col[] = ["label" => "Score Team Away", "name" => "score_team_away"];
-        $this->col[] = ["label" => "Description", "name" => "description"];
-        # END COLUMNS DO NOT REMOVE THIS LINE
-        # START FORM DO NOT REMOVE THIS LINE
-        $this->form = [];
-        $this->form[] = array(
-            'style' => '',
-            'help' => '',
-            'placeholder' => '',
-            'readonly' => '',
-            'disabled' => '',
-            'label' => 'Date Match',
-            'name' => 'date_match',
-            'type' => 'text',
-            'validation' => 'required|min:3|max:255',
-            'width' => 'col-sm-10',
-        );
-        $this->form[] = array(
-            'dataenum' => '',
-            'datatable' => 'mst_liga,liga_name',
-            //'dataquery' => 'select id as value, liga_name as label from mst_liga',
-            'dataquery' => '',
-            'style' => '',
-            'help' => '',
-            'datatable_where' => '',
-            'datatable_format' => '',
-            'parent_select' => '',
-            'label' => 'Liga',
-            'name' => 'liga_id',
-            'type' => 'select',
-            'validation' => 'required|min:3|max:255',
-            'width' => 'col-sm-10',
-        );
-        $this->form[] = array(
-            'dataenum' => '',
-            'datatable' => 'mst_team,team_name',
-            'dataquery' => '',
-            'style' => '',
-            'help' => '',
-            'datatable_where' => '',
-            'datatable_format' => '',
-            'parent_select' => 'liga_id',
-            'label' => 'Team Home',
-            'name' => 'id_team_home',
-            'type' => 'select',
-            'validation' => 'required|min:3|max:255',
-            'width' => 'col-sm-10',
-        );
-        $this->form[] = array(
-            'dataenum' => '',
-            'datatable' => 'mst_team, team_name',
-            'dataquery' => '',
-            'style' => '',
-            'help' => '',
-            'datatable_where' => '',
-            'datatable_format' => '',
-            'parent_select' => 'liga_id',
-            'label' => 'Team Away',
-            'name' => 'id_team_away',
-            'type' => 'select',
-            'validation' => 'required|min:3|max:255',
-            'width' => 'col-sm-10',
-        );
-        $this->form[] = array(
-            'style' => '',
-            'help' => '',
-            'placeholder' => '',
-            'readonly' => '',
-            'disabled' => '',
-            'label' => 'Result Match',
-            'name' => 'result_match',
-            'type' => 'text',
-            'validation' => '',
-            'width' => 'col-sm-10',
-        );
-        $this->form[] = array(
-            'style' => '',
-            'help' => '',
-            'placeholder' => '',
-            'readonly' => '',
-            'disabled' => '',
-            'label' => 'Score Team Home',
-            'name' => 'score_team_home',
-            'type' => 'text',
-            'validation' => '',
-            'width' => 'col-sm-10',
-        );
-        $this->form[] = array(
-            'style' => '',
-            'help' => '',
-            'placeholder' => '',
-            'readonly' => '',
-            'disabled' => '',
-            'label' => 'Score Team Away',
-            'name' => 'score_team_away',
-            'type' => 'text',
-            'validation' => '',
-            'width' => 'col-sm-10',
-        );
-        $this->form[] = array(
-            'style' => '',
-            'help' => '',
-            'placeholder' => '',
-            'readonly' => '',
-            'disabled' => '',
-            'label' => 'Description',
-            'name' => 'description',
-            'type' => 'text',
-            'validation' => '',
-            'width' => 'col-sm-10',
-        );
-        # END FORM DO NOT REMOVE THIS LINE
+			# START CONFIGURATION DO NOT REMOVE THIS LINE
+			$this->title_field = "id";
+			$this->limit = "20";
+			$this->orderby = "date_match,desc";
+			$this->global_privilege = false;
+			$this->button_table_action = true;
+			$this->button_action_style = "button_icon";
+			$this->button_show = true;
+			$this->button_filter = true;
+			$this->button_import = false;
+			$this->button_export = false;
+			$this->table = "bola_kuis.trn_match";
+			# END CONFIGURATION DO NOT REMOVE THIS LINE
 
-        /*
+			# START COLUMNS DO NOT REMOVE THIS LINE
+			$this->col = [];
+			$this->col[] = ["label"=>"Date Match","name"=>"date_match","callback_php"=>  date('F d, Y (H:i:s)', strtotime($row->date_match))];
+			$this->col[] = ["label"=>"Liga","name"=>"id_liga","join"=>"bola_kuis.mst_liga,liga_name"];
+			$this->col[] = ["label"=>"Team Home","name"=>"id_team_home","join"=>"mst_team,team_name"];
+			$this->col[] = ["label"=>"Team Away","name"=>"id_team_away","join"=>"mst_team,team_name"];
+			$this->col[] = ["label"=>"Result Match","name"=>"result_match"];
+			$this->col[] = ["label"=>"Score Team Home","name"=>"score_team_home"];
+			$this->col[] = ["label"=>"Score Team Away","name"=>"score_team_away"];
+			$this->col[] = ["label"=>"Description","name"=>"description"];
+			# END COLUMNS DO NOT REMOVE THIS LINE
+
+			# START FORM DO NOT REMOVE THIS LINE
+			$this->form = [];
+			$this->form[] = array (
+  'style' => '',
+  'help' => '',
+  'placeholder' => '',
+  'readonly' => '',
+  'disabled' => '',
+  'label' => 'Date Match',
+  'name' => 'date_match',
+  'type' => 'text',
+  'validation' => 'required|min:3|max:255',
+  'width' => 'col-sm-10',
+);
+			$this->form[] = array (
+  'dataenum' => '',
+  'datatable' => 'mst_liga,liga_name',
+  'dataquery' => '',
+  'style' => '',
+  'help' => '',
+  'datatable_where' => '',
+  'datatable_format' => '',
+  'parent_select' => '',
+  'label' => 'Liga',
+  'name' => 'id_liga',
+  'type' => 'select',
+  'validation' => 'required|max:255',
+  'width' => 'col-sm-10',
+);
+			$this->form[] = array (
+  'dataenum' => '',
+  'datatable' => 'mst_team,team_name',
+  'dataquery' => '',
+  'style' => '',
+  'help' => '',
+  'datatable_where' => '',
+  'datatable_format' => '',
+  'parent_select' => 'id_liga',
+  'label' => 'Team Home',
+  'name' => 'id_team_home',
+  'type' => 'select',
+  'validation' => 'required|max:255',
+  'width' => 'col-sm-10',
+);
+			$this->form[] = array (
+  'dataenum' => '',
+  'datatable' => 'mst_team, team_name',
+  'dataquery' => '',
+  'style' => '',
+  'help' => '',
+  'datatable_where' => '',
+  'datatable_format' => '',
+  'parent_select' => 'id_liga',
+  'label' => 'Team Away',
+  'name' => 'id_team_away',
+  'type' => 'select',
+  'validation' => 'required|max:255',
+  'width' => 'col-sm-10',
+);
+			$this->form[] = array (
+  'dataenum' => 'Draw;Home Win;Away Win',
+  'datatable' => '',
+  'dataquery' => '',
+  'style' => '',
+  'help' => '',
+  'datatable_where' => '',
+  'datatable_format' => '',
+  'parent_select' => '',
+  'label' => 'Result Match',
+  'name' => 'result_match',
+  'type' => 'select',
+  'validation' => '',
+  'width' => 'col-sm-10',
+);
+			$this->form[] = array (
+  'style' => '',
+  'help' => '',
+  'placeholder' => '',
+  'readonly' => '',
+  'disabled' => '',
+  'label' => 'Score Team Home',
+  'name' => 'score_team_home',
+  'type' => 'text',
+  'validation' => '',
+  'width' => 'col-sm-10',
+);
+			$this->form[] = array (
+  'style' => '',
+  'help' => '',
+  'placeholder' => '',
+  'readonly' => '',
+  'disabled' => '',
+  'label' => 'Score Team Away',
+  'name' => 'score_team_away',
+  'type' => 'text',
+  'validation' => '',
+  'width' => 'col-sm-10',
+);
+			$this->form[] = array (
+  'style' => '',
+  'help' => '',
+  'placeholder' => '',
+  'readonly' => '',
+  'disabled' => '',
+  'label' => 'Description',
+  'name' => 'description',
+  'type' => 'text',
+  'validation' => '',
+  'width' => 'col-sm-10',
+);
+			# END FORM DO NOT REMOVE THIS LINE
+
+			/*
           | ----------------------------------------------------------------------
           | Sub Module
           | ----------------------------------------------------------------------
@@ -282,6 +282,30 @@ class AdminCreateTrnMatchController extends \crocodicstudio\crudbooster\controll
           |
          */
         $this->load_css = array();
+    }
+    
+    public function getAdd() {
+        $data['page_title'] = 'Add New Match';
+        $data['liga'] = DB::table('mst_liga')->get();
+        $this->cbView('match/add_match', $data);
+    }
+    
+    public function getTeamByLiga(Request $req){
+        $idLiga = $req->input('txtIdLiga');
+        $team = DB::table('mst_team')->select('id as value_select', 'team_name as label_select')->where('id_liga', $idLiga)->get();
+        return $team;
+    }
+    
+    public function storeMatch(Request $req){
+        DB::table('trn_match')->insert([
+            'date_match' => date('Y-m-d H:i:s', strtotime($req->input('date_match'))),
+            'id_liga' => $req->input('id_liga'),
+            'id_team_home' => $req->input('id_team_home'),
+            'id_team_away' => $req->input('id_team_away'),
+            'created_at' => date('Y-m-d H:i:s'),
+        ]);
+        
+        return redirect(CRUDBooster::mainpath());
     }
 
     /*
