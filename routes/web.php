@@ -27,3 +27,6 @@ Route::get('/home', 'HomeController@index');
 
 //-----play game
 Route::get('/play_game', 'HomeController@play_game');
+//-----admin
+Route::get('/getteam', 'AdminCreateTrnMatchController@getTeamByLiga');
+Route::post('/storematch', 'AdminCreateTrnMatchController@storeMatch');

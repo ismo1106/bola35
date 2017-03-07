@@ -30,7 +30,7 @@ class AdminMstTeamController extends \crocodicstudio\crudbooster\controllers\CBC
         # END CONFIGURATION DO NOT REMOVE THIS LINE
         # START COLUMNS DO NOT REMOVE THIS LINE
         $this->col = [];
-        $this->col[] = ["label" => "Liga Id", "name" => "liga_id", "join" => "bola_kuis.mst_liga,liga_name"];
+        $this->col[] = ["label" => "Liga", "name" => "id_liga", "join" => "bola_kuis.mst_liga,liga_name"];
         $this->col[] = ["label" => "Team Name", "name" => "team_name"];
         $this->col[] = ["label" => "Logo", "name" => "logo", "image" => true];
         $this->col[] = ["label" => "Description", "name" => "description"];
@@ -47,7 +47,7 @@ class AdminMstTeamController extends \crocodicstudio\crudbooster\controllers\CBC
             'datatable_format' => '',
             'parent_select' => '',
             'label' => 'Liga',
-            'name' => 'liga_id',
+            'name' => 'id_liga',
             'type' => 'select',
             'validation' => 'required',
             'width' => 'col-sm-10',
