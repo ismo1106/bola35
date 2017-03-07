@@ -46,7 +46,7 @@
                         <!-- Left Side Of Navbar -->
                         <ul class="nav navbar-nav">
                             <li><a class="font-menu" href="<?php echo e(route('login')); ?>">Kuis</a></li>
-                            <li><a class="font-menu" href="">Play Game</a></li>
+                            <li><a class="font-menu" href="/play_game">Play Game</a></li>
                             <li><a class="font-menu" href="">Hadiah</a> </li>
                             <li><a class="font-menu" href="">Cara Mendaftar</a></li>
                             <li><a class="font-menu" href="">Cara Bermain</a></li>
@@ -64,7 +64,7 @@
                             <?php else: ?>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    <?php echo e(Auth::user()->username); ?> <span class="caret"></span>
+                                    <?php echo e(Auth::user()->name); ?> <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">

@@ -12014,3 +12014,9 @@ Stack trace:
 Stack trace:
 #0 {main}  
 >>>>>>> update admin
+[2017-03-07 09:24:20] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '<<' (T_SL)' in C:\LProject\bola53\routes\web.php:27
+Stack trace:
+#0 {main}  
+[2017-03-07 09:26:31] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '01' (T_LNUMBER)' in C:\LProject\bola53\vendor\crocodicstudio\crudbooster\src\controllers\CBController.php(459) : eval()'d code:1
+Stack trace:
+#0 {main}  
